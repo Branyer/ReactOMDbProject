@@ -1,7 +1,8 @@
 import React from 'react'
 
 import PageItem from './PageItem.js'
-    
+import MovieCard from './MovieCard.js'
+
 function ListMovieResults({ data, handlePage, page}) {
         
     const {totalResults, Search} = data;
@@ -82,11 +83,19 @@ function ListMovieResults({ data, handlePage, page}) {
                 </ul>
             </div>
             {/*lISTA DE PELICULAS */}
-            {Search && Search.map( (movie) => 1
-               
-            
+            <div className="searsearch-results__container--flex">
+                <div className="search-results__container--movies">
+                {Search && Search.map( (movie) => {
+                    
+                    return <MovieCard
+                        poster={movie.Poster}
+                        title={movie.Title}
+                        year={movie.Year}
+                    />
 
-            )}
+                })}
+                </div>
+            </div>
         </div>
     )
 }

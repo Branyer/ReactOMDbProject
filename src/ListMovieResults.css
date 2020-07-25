@@ -44,4 +44,42 @@
     cursor: pointer;
 }
 
+.searsearch-results__container--flex {
+    display: flex;
+    justify-content: center;
+}
 
+.search-results__container--movies{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+.search_results__movie {
+    width: 200px;
+    height: 350px;
+    margin: 25px;
+}
+
+.search_results__movie__poster{
+    border-radius: 5px;
+    border: 5px solid white;
+    height: 80%;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.search_results__movie__poster:hover{
+    border-color: rgb(133, 185, 54);
+}
+
+.search_results__movie__title{
+    font-size: 1.15rem;
+    color: white;
+}
+
+.search_results__movie__year{
+    color: rgb(190, 190, 190);
+}
