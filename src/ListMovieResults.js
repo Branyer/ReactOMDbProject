@@ -76,7 +76,7 @@ function ListMovieResults({ data, handlePage, page}) {
     return (
         <div className="search-results" >
             <div className="search-results__container">
-                <p className="search-results__results"><b>{totalResults} OMDb</b> Movies found</p>
+                <p className="search-results__results"><b>{totalResults ? totalResults : 'There are not'} OMDb</b> Movies found</p>
                 {/*pestañas (Previous) (1) (2) ... (10) (Next) */}
                 <ul className="search-results__listPages">
                     {page && showPages(page)}
@@ -85,12 +85,13 @@ function ListMovieResults({ data, handlePage, page}) {
             {/*lISTA DE PELICULAS */}
             <div className="searsearch-results__container--flex">
                 <div className="search-results__container--movies">
-                {Search && Search.map( (movie) => {
+                {Search && Search.map( (movie, index) => {
                     
                     return <MovieCard
                         poster={movie.Poster}
                         title={movie.Title}
                         year={movie.Year}
+                        key={index}
                     />
 
                 })}
