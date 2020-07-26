@@ -4,10 +4,10 @@ import Header from './Header.js'
 import FormInputMovie from './FormInputMovie'
 import ListMovieResults from './ListMovieResults'
 
-import './App.css'
-import './Header.css'
-import './FormInputMovie.css'
-import './ListMovieResults.css'
+import '../styles/App.css'
+import '../styles/Header.css'
+import '../styles/FormInputMovie.css'
+import '../styles/ListMovieResults.css'
 
 const API_KEY = '715d100a';
 const API = 'https://www.omdbapi.com/';
