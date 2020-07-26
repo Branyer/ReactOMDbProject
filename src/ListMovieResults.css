@@ -58,22 +58,22 @@
 
 }
 .search_results__movie {
+    position: relative;
     width: 200px;
     height: 350px;
     margin: 25px;
 }
 
 .search_results__movie__poster{
+    position: relative;
     border-radius: 5px;
     border: 5px solid white;
     height: 80%;
     width: 100%;
+    z-index: 200;
     transition: all 0.3s ease;
 }
 
-.search_results__movie__poster:hover{
-    border-color: rgb(133, 185, 54);
-}
 
 .search_results__movie__title{
     font-size: 1.15rem;
@@ -82,4 +82,38 @@
 
 .search_results__movie__year{
     color: rgb(190, 190, 190);
+}
+
+.search_result--hover{
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    border: 5px solid rgb(133, 185, 54);
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    z-index: 500;
+    transition: all 1s ease;
+}
+
+.search_result__viewDetails {
+    background-color: rgb(133, 185, 54);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    height: 47px;
+    outline: none;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.search_result__viewDetails:hover {
+    background-color: rgb(93, 131, 37);
+    cursor: pointer;
 }
