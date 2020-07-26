@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import PageItem from './PageItem.js'
 import MovieCard from './MovieCard.js'
+import ModalWindow from './ModalWindow.js'
 
 function ListMovieResults({ data, handlePage, page}) {
         
-    const {totalResults, Search} = data;
     
+    const [showModal, setShowModal] = useState(false);
+    
+    const handleClick = () =>  {
+        setShowModal(true)
+        console.log("click");
+    }
+
+    const {totalResults, Search} = data;
 
     const handlePrevious = () =>  handlePage((page - 1));
     const handleNext = () =>  handlePage((page + 1));
@@ -74,30 +82,34 @@ function ListMovieResults({ data, handlePage, page}) {
     }
 
     return (
-        <div className="search-results" >
-            <div className="search-results__container">
-                <p className="search-results__results"><b>{totalResults ? totalResults : 'There are not'} OMDb</b> Movies found</p>
-                {/*pestañas (Previous) (1) (2) ... (10) (Next) */}
-                <ul className="search-results__listPages">
-                    {page && showPages(page)}
-                </ul>
-            </div>
-            {/*lISTA DE PELICULAS */}
-            <div className="searsearch-results__container--flex">
-                <div className="search-results__container--movies">
-                {Search && Search.map( (movie, index) => {
-                    
-                    return <MovieCard
-                        poster={movie.Poster}
-                        title={movie.Title}
-                        year={movie.Year}
-                        key={index}
-                    />
+        <>
+            <ModalWindow show={showModal} />
+            <div className="search-results" >
+                <div className="search-results__container">
+                    <p className="search-results__results"><b>{totalResults ? totalResults : 'There are not'} OMDb</b> Movies found</p>
+                    {/*pestañas (Previous) (1) (2) ... (10) (Next) */}
+                    <ul className="search-results__listPages">
+                        {page && showPages(page)}
+                    </ul>
+                </div>
+                {/*lISTA DE PELICULAS */}
+                <div className="searsearch-results__container--flex">
+                    <div className="search-results__container--movies">
+                    {Search && Search.map( (movie, index) => {
+                        
+                        return <MovieCard
+                            poster={movie.Poster}
+                            title={movie.Title}
+                            year={movie.Year}
+                            key={index}
+                            handleClick = {handleClick}
+                        />
 
-                })}
+                    })}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
