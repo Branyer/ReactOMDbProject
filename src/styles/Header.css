@@ -12,22 +12,18 @@
 
 
 .header__logo {
-    display: flex;
+    color: rgb(133, 185, 54); 
     flex: 0.2;
+    font-size: 2rem;
+    font-weight: 1000;
     justify-content: center;
+    text-align: center;
+    text-shadow: -5px 5px 5px black;
+    transition: all 0.5s ease-in-out;
 }
 
-
-.header__logo img{
-    border-radius: 10px;
-    min-width: 120px;
-    height: 45px;
-    transition: all 0.5s ease;
-}
-
-.header__logo img:hover {
+.header__logo:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 20px white;
 }
 
 .header__menu {
@@ -42,6 +38,24 @@
     display: flex;
     flex: 1;
     justify-content: space-around;
+}
+
+@media (max-width: 530px) {
+ 
+    .header__menu ul, 
+    .header{
+       flex-direction: column;
+       padding: 0;
+    }
+
+    .header__menu ul {
+        margin: 10px;
+    }
+
+    .header__menu ul li{
+        font-size: 1.3rem;
+        margin: 10px;
+    }
 }
 
 .header__menu__item {

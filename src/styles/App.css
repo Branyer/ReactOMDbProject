@@ -16,20 +16,206 @@ img {
     display: flex;
     height: 100vh;
     justify-content: center;
-    opacity: 0;
     position: fixed;
-    top: 3%;
+    top: 0;
     width: 100vw;
     z-index: 2000;
     transform: translate(100%);
-    transition: opacity 1s ease-in-out;
     transition: transform 0.5s ease;
 }
 
 .modal-window {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     border: 4px solid rgb(133, 185, 54);
+    /* border-right: none; */
     border-radius: 5px;
-    height: 80%;
+    height: 95%;
     width: 90%;
+    overflow-y: scroll;
+}
+
+.modal-window::-webkit-scrollbar {
+    /* color: black; */
+    margin: 10px;
+
+}
+
+.modal-window::-webkit-scrollbar-thumb:hover {
+    /* color: black; */
+   
+}
+
+.modal-window::-webkit-scrollbar:horizontal {
+    /* color: black; */
+    width: 10px;
+}
+
+.modal-window::-webkit-scrollbar:vertical {
+    /* color: black; */
+    width: 10px;
+    margin: 10px;
+}
+
+
+.modal-window::-webkit-scrollbar-thumb{
+    background-color:  rgb(184, 183, 173);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.modal-window::-webkit-scrollbar-thumb:hover, 
+.modal-window::-webkit-scrollbar-thumb:active
+{
+    background-color:  rgb(223, 222, 217);
+}
+
+.modal-window__buttonOut--container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-window__buttonOut {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border: 1px solid white;
+    color: black;
+    margin: 2px 2px 0px 0px;
+    padding: 5px 10px;
+    font-weight: bolder;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-window__buttonOut:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-window__details--container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 90%;
+    height: fit-content;
+}
+
+.modal-window__details__poster--container {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+@media (max-width: 530px) {
+    .modal-window__details--container {
+        flex-direction: column;
+    }
+
+    .modal-window__details__ratings--container {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .modal-window__details__ratings--container ul {
+        padding: 0;
+     }
+
+    .modal-window__details__ratings--container ul li{
+       list-style: none;
+    }
+}
+
+
+.modal-window__details__poster--container {
+    color: white;
+    height: 100%;
+}
+
+.modal-window__details__poster--container p:first-child {
+    color:  grey;
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.modal-window__details__poster--container p {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.modal-window__details__poster--container p b{
+    color: white;
+    font-size: 2rem;
+    font-weight: 1200;
+}
+
+
+.modal-window__details__poster--container p span{
+    color: white;
+  
+}
+
+.modal-window__details__poster--container ul{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  
+}
+
+.modal-window__details__poster--container ul>span{
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+
+.modal-window__details__poster--container ul li{
+    color: gold;
+    margin: 5px;
+  
+}
+
+
+.modal-window__details__poster--container ul li span{
+    color: white;
+    
+}
+
+
+.modal-window__details__poster--container img {
+    width: 50%;
+    border: 5px solid white;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+
+.modal-window__details__ratings--container {
+    flex: 0.3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: 20px;
+}
+
+.modal-window__details__ratings--container ul li{
+    margin-top: 20px;
+}
+
+.modal-window__details__ratings--container ul>span{
+    font-size: 1.6rem;
+    font-weight: 1000;
+    
+}
+
+.modal-window__details__ratings--container ul li span{
+    font-size: 1.4rem;
+    font-weight: bolder;
 }

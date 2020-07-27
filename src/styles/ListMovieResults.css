@@ -16,6 +16,8 @@
     text-align: center;
 }
 
+
+
 .search-results__listPages {
     display: flex;
     justify-content: center;
@@ -35,7 +37,12 @@
     transition: all 0.2s ease;
 }
 
-
+@media (max-width: 530px) {
+ 
+    .search-results__listPages__pageItem {
+        display: none;
+    }
+}
 
 .page-select,
 .search-results__listPages__pageItem:hover
