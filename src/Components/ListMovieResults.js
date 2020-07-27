@@ -7,11 +7,22 @@ import ModalWindow from './ModalWindow.js'
 function ListMovieResults({ data, handlePage, page}) {
         
     
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
+    // const [title, setTitle] = useState('');
+    const [modal, setModal] = useState({show: false, title: ''})
     
-    const handleClick = () =>  {
-        setShowModal(true)
-        console.log("click");
+    const handleClick = (e) =>  {
+        e.preventDefault();
+        if(!modal.show){
+
+            const auxTitle = e.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.innerHTML;
+            setModal({show: true, title: auxTitle})
+        }else{
+
+            setModal({show: false, title: ''})
+        }
+
+        
     }
 
     const {totalResults, Search} = data;
@@ -83,7 +94,7 @@ function ListMovieResults({ data, handlePage, page}) {
 
     return (
         <>
-            <ModalWindow show={showModal} />
+            <ModalWindow modal={modal} handleClick = {handleClick}  />
             <div className="search-results" >
                 <div className="search-results__container">
                     <p className="search-results__results"><b>{totalResults ? totalResults : 'There are not'} OMDb</b> Movies found</p>

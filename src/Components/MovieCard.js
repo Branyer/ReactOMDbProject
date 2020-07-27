@@ -7,8 +7,8 @@ function MovieCard({poster, title, year, handleClick}) {
    
 
     const buttonRef = useRef();
-    const handleMouseEnter = (e) => {
-        const hoverIn = e.target;
+    const handleMouseEnter = () => {
+        const hoverIn = buttonRef.current.parentNode;
         hoverIn.style.opacity = '1';
         buttonRef.current.style.opacity='1';
         buttonRef.current.style.transform = 'translateY(0px)' 
@@ -16,11 +16,11 @@ function MovieCard({poster, title, year, handleClick}) {
     }
 
 
-    const handleMouseLeave = (e) => {
-        const hoverOut = e.target;
+    const handleMouseLeave = () => {
+        const hoverOut = buttonRef.current.parentNode;
+        hoverOut.style.opacity = '0';
         buttonRef.current.style.opacity='0';
         buttonRef.current.style.transform = 'translateY(50px)' 
-        hoverOut.style.opacity = '0';
     }
 
     
