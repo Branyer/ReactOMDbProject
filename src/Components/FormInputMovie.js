@@ -2,7 +2,7 @@ import React, { useRef }from 'react'
 
 import LabelWelcomeMessage from './LabelWelcomeMessage.js'
 
-function FormInputMovie({ handleTitleSearch }) {
+function FormInputMovie({ handleTitleSearch, user, setInFavorites }) {
 
     const inputText = useRef();
 
@@ -11,15 +11,16 @@ function FormInputMovie({ handleTitleSearch }) {
         handleTitleSearch(inputText.current.value);
         inputText.current.value = '';
         inputText.current.focus();
+        setInFavorites(false);
     }
     
     return (
         <form className="form">
             <div className="form__container--input">
-                <LabelWelcomeMessage name="BAVC" />
+                <LabelWelcomeMessage name= { user && user.name} />
                 <input type="text" id="inputMovieTitle" name="inputMovieTitle" ref={inputText} />
             </div>
-            <button className="form_button" id="search-button" onClick={handleButtonClick} >Search</button>
+            <button className="form_button button" id="search-button" onClick={handleButtonClick} >Search</button>
         </form>
     )
 }

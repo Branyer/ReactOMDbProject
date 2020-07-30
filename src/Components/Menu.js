@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import MenuItem from './MenuItem.js'
-function Menu() {
+function Menu({isLogged, handleLogin, handleLogged, setInFavorites}) {
 
-    const [isLogged, setIsLogged] = useState(false);
-
-    const handleLogin = () =>  isLogged ? setIsLogged(false) : setIsLogged(true);
+    const handleHome = () => setInFavorites(false);
+    const handleFavorite = () => setInFavorites(true);
 
     const LoggedOrNot = () => 
         (isLogged ?
             <>
-                <MenuItem value="Favorites" />
-                <MenuItem value="Logged"  onClick={handleLogin}/>
+                <MenuItem value="Favorites" onClick = {handleFavorite}/>
+                <MenuItem value="Logout"  onClick={handleLogged}/>
             </>
             :
             <>
@@ -21,7 +20,7 @@ function Menu() {
     return (
         <div className="header__menu">
             <ul>
-                <MenuItem value="Home" />
+                <MenuItem value="Home" onClick = {handleHome}/>
                 {LoggedOrNot()}
             </ul>
         </div>

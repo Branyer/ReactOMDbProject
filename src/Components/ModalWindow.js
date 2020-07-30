@@ -39,7 +39,7 @@ function ModalWindow({modal, handleClick}) {
                 <div className = "modal-window">
                     <div className ="modal-window__buttonOut--container">
                         <button 
-                        className="modal-window__buttonOut"
+                        className="modal-window__buttonOut button--close"
                         onClick = {handleClick}
                         > X </button>
                     </div>

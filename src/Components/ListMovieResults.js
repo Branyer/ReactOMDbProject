@@ -4,11 +4,9 @@ import PageItem from './PageItem.js'
 import MovieCard from './MovieCard.js'
 import ModalWindow from './ModalWindow.js'
 
-function ListMovieResults({ data, handlePage, page}) {
+function ListMovieResults({ data, handlePage, page, user, setUser, inFavorites}) {
         
-    
-    // const [showModal, setShowModal] = useState(false);
-    // const [title, setTitle] = useState('');
+    /* hacer la funcionalidad de agregar peli a favoritos*/
     const [modal, setModal] = useState({show: false, title: ''})
     
     const handleClick = (e) =>  {
@@ -43,6 +41,7 @@ function ListMovieResults({ data, handlePage, page}) {
         for(let i=start; i<=(stopFor + (start===1? 0 : start)); i++){
 
             if(i===page) classPage+=' page-select';
+            else classPage+=' page-notSelect';
             
             listaPages.push( 
                 <PageItem 
@@ -93,7 +92,32 @@ function ListMovieResults({ data, handlePage, page}) {
     }
 
     return (
-        <>
+        <>  {inFavorites 
+            ?
+            <>
+            <ModalWindow modal={modal} handleClick = {handleClick}  />
+            <div className="search-results__container--flex favorites">
+            <div className="search-results__container">
+                 <p className="search-results__results">
+                     <b>{user.favorites.length ? user.favorites.length : 'There are not'} OMDb</b> Movies favorites found</p>
+                
+            </div>
+                    <div className="search-results__container--movies">
+                    {user.name && user.favorites.map( (movie, index) => {
+                        
+                        return <MovieCard
+                            movie  = {movie}
+                            handleClick = {handleClick}
+                            user = {user}
+                            setUser = {setUser}
+                        />
+
+                    })}
+                    </div>
+            </div>
+            </>
+            :
+            <>
             <ModalWindow modal={modal} handleClick = {handleClick}  />
             <div className="search-results" >
                 <div className="search-results__container">
@@ -109,17 +133,18 @@ function ListMovieResults({ data, handlePage, page}) {
                     {Search && Search.map( (movie, index) => {
                         
                         return <MovieCard
-                            poster={movie.Poster}
-                            title={movie.Title}
-                            year={movie.Year}
-                            key={index}
+                            movie  = {movie}
                             handleClick = {handleClick}
+                            user = {user}
+                            setUser = {setUser}
                         />
 
                     })}
                     </div>
                 </div>
             </div>
+            </>
+            }
         </>
     )
 }

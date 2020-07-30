@@ -11,6 +11,41 @@ img {
     max-width: 100%;
 }
 
+button {
+    border: none;
+    outline: none;
+}
+
+.button {
+    background-color: rgb(133, 185, 54);
+    height: 47px;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: rgb(93, 131, 37);
+    cursor: pointer;
+}
+
+.button--close {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid white;
+    color: black;
+    margin: 2px 2px 0px 0px;
+    padding: 5px 10px;
+    font-weight: bolder;
+    transition: all 0.3s ease-in-out;
+}
+
+.button--close:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
 .modal-window--container {
     align-items: center;
     display: flex;
@@ -40,10 +75,6 @@ img {
 
 }
 
-.modal-window::-webkit-scrollbar-thumb:hover {
-    /* color: black; */
-   
-}
 
 .modal-window::-webkit-scrollbar:horizontal {
     /* color: black; */
@@ -74,23 +105,6 @@ img {
     justify-content: flex-end;
 }
 
-.modal-window__buttonOut {
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border: 1px solid white;
-    color: black;
-    margin: 2px 2px 0px 0px;
-    padding: 5px 10px;
-    font-weight: bolder;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.modal-window__buttonOut:hover {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
 
 .modal-window__details--container {
     display: flex;
@@ -125,6 +139,10 @@ img {
 
     .modal-window__details__ratings--container ul li{
        list-style: none;
+    }
+
+    .favorites {
+        margin-top: 300px;
     }
 }
 
@@ -218,4 +236,12 @@ img {
 .modal-window__details__ratings--container ul li span{
     font-size: 1.4rem;
     font-weight: bolder;
+}
+
+.favorites{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
